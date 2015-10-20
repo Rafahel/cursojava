@@ -2,6 +2,18 @@
 O projeto pode ser utilizado como base para a construção de uma aplicação de cadastro e consultas simples.
 A aplicação utiliza as seguintes tecnologias:
 
+Loja de jogos digitais.
+
+Grupo : Rafahel, Thiago, Bruno e Douglas.
+
+Empresa : TBG
+	
+
+
+
+
+
+
 	1. Java 8 e JPA
 	2. Hibernate e Entity Manager
 	3. JavaFX
