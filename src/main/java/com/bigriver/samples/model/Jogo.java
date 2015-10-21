@@ -1,7 +1,10 @@
 package com.bigriver.samples.model;
 
+import com.dooapp.fxform.annotation.NonVisual;
+
 public class Jogo {
 	
+	@NonVisual
 	private int id;
 	private String nome, genero, plataforma;
 	private int jogadores;
