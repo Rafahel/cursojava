@@ -5,7 +5,7 @@ import com.bigriver.samples.dao.PessoaDAO;
 import com.bigriver.samples.model.Endereco;
 import com.bigriver.samples.model.Jogo;
 import com.bigriver.samples.model.Pessoa;
-import com.bigriver.samples.service.VendaPessoa;
+import com.bigriver.samples.service.VendaJogo;
 import com.bigriver.samples.view.TelaCadastro;
 import com.bigriver.samples.view.TelaConsulta;
 import com.bigriver.samples.view.TelaDashboard;
@@ -52,11 +52,11 @@ public class DashBoard extends Application {
 		//Cria uma Tela de Consulta de Pessoas
 		TelaConsulta<Jogo> jogo_consulta = new TelaConsulta<>("Consulta Jogos", jogo_dao_consulta);
 		
-		//Cria uma Venda Ilegal de Pessoas
-		VendaPessoa vendaPessoas = new VendaPessoa();
+		//Cria uma Tela para Venda de Jogos
+		VendaJogo venda_jogos = new VendaJogo();
 		
 		//Cria uma Tela de Vendas
-		TelaVendas<Pessoa> telaVendas = new TelaVendas<>("Venda Ilegal Pessoas", vendaPessoas);
+		TelaVendas<Jogo> telaVendas = new TelaVendas<>("Venda Jogos", venda_jogos);
 		
 		//Cria uma tela de DashBoard com as telas de Consulta e Cadastro de Pessoas
 		TelaDashboard telaDashboard = new TelaDashboard(pessoa_consulta, pessoa_cadastro, jogo_consulta, jogo_cadastro, telaVendas);
