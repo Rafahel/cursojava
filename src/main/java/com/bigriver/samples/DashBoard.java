@@ -1,7 +1,9 @@
 package com.bigriver.samples;
 
+import com.bigriver.samples.dao.JogoDAO;
 import com.bigriver.samples.dao.PessoaDAO;
 import com.bigriver.samples.model.Endereco;
+import com.bigriver.samples.model.Jogo;
 import com.bigriver.samples.model.Pessoa;
 import com.bigriver.samples.service.VendaPessoa;
 import com.bigriver.samples.view.TelaCadastro;
@@ -26,17 +28,29 @@ public class DashBoard extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		//Carrega um objeto Pessoa e Endereço
 		Pessoa pessoa = new Pessoa();
+		Jogo jogo = new Jogo();
 		Endereco endereco = new Endereco();
 		pessoa.setEndereco(endereco);
+		
 		//Carrega um DAO de Pessoas
-		PessoaDAO dao = new PessoaDAO();
+		PessoaDAO pessoa_dao_cadastro = new PessoaDAO();
 		//Cria uma tela de cadastro de Pessoas
-		TelaCadastro<Pessoa> cadastro = new TelaCadastro<>("Cadastro Pessoa", pessoa, dao, endereco);
+		TelaCadastro<Pessoa> pessoa_cadastro = new TelaCadastro<>("Cadastro Pessoa", pessoa, pessoa_dao_cadastro, endereco);
+		
+		//Carrega um DAO de Jogos
+		JogoDAO jogo_dao_cadastro = new JogoDAO();
+		//Cria uma tela de cadastro de Jogos
+		TelaCadastro<Jogo> jogo_cadastro = new TelaCadastro<>("Cadastro Jogo", jogo, jogo_dao_cadastro);		
 	
 		//Cria um DAO para as Pessoas
-		PessoaDAO pessoaDao = new PessoaDAO();
+		PessoaDAO pessoa_dao_consulta = new PessoaDAO();
 		//Cria uma Tela de Consulta de Pessoas
-		TelaConsulta<Pessoa> consulta = new TelaConsulta<>("Consulta Pessoas", pessoaDao);
+		TelaConsulta<Pessoa> pessoa_consulta = new TelaConsulta<>("Consulta Pessoas", pessoa_dao_consulta);
+		
+		//Cria um DAO para as Pessoas
+		JogoDAO jogo_dao_consulta = new JogoDAO();
+		//Cria uma Tela de Consulta de Pessoas
+		TelaConsulta<Jogo> jogo_consulta = new TelaConsulta<>("Consulta Jogos", jogo_dao_consulta);
 		
 		//Cria uma Venda Ilegal de Pessoas
 		VendaPessoa vendaPessoas = new VendaPessoa();
@@ -45,7 +59,7 @@ public class DashBoard extends Application {
 		TelaVendas<Pessoa> telaVendas = new TelaVendas<>("Venda Ilegal Pessoas", vendaPessoas);
 		
 		//Cria uma tela de DashBoard com as telas de Consulta e Cadastro de Pessoas
-		TelaDashboard telaDashboard = new TelaDashboard(consulta, cadastro, telaVendas);
+		TelaDashboard telaDashboard = new TelaDashboard(pessoa_consulta, pessoa_cadastro, jogo_consulta, jogo_cadastro, telaVendas);
 		
 		//Cria uma Scene (JavaFX) com a tela de consulta
 		Scene scene = new Scene(telaDashboard);
