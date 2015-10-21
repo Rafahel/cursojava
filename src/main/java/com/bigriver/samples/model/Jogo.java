@@ -2,8 +2,13 @@ package com.bigriver.samples.model;
 
 import com.dooapp.fxform.annotation.NonVisual;
 
+/**
+ * Classe da tabela jogo do banco de dados
+ * @author bluzcom
+ * @author Douglas
+ */
 public class Jogo {
-	
+	//Não exibir o id do jogo
 	@NonVisual
 	private int id;
 	private String nome, genero, plataforma;
