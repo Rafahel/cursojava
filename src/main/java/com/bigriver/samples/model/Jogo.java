@@ -1,5 +1,15 @@
 package com.bigriver.samples.model;
 
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.bigriver.samples.listener.JogoListener;
 import com.dooapp.fxform.annotation.NonVisual;
 
 /**
@@ -7,14 +17,23 @@ import com.dooapp.fxform.annotation.NonVisual;
  * @author bluzcom
  * @author Douglas
  */
+@Entity
+@EntityListeners(JogoListener.class)
 public class Jogo {
 	//Não exibir o id do jogo
 	@NonVisual
 	private int id;
+	
+	//Não exibir em formulários
+	@NonVisual
+	private Date timestamps;
+		
 	private String nome, genero, plataforma;
 	private int jogadores;
 	private double preco;
 	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -61,6 +80,15 @@ public class Jogo {
 	
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getTimestamps() {
+		return timestamps;
+	}
+	
+	public void setTimestamps(Date timestamps) {
+		this.timestamps = timestamps;
 	}
 	
 	@Override
