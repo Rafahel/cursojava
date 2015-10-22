@@ -23,4 +23,5 @@ public interface ServicoVenda<T> {
 	 * @param cliente O cliente que irá comprar o produto
 	 */
 	void vender(T produto, Pessoa cliente);
+	
 }

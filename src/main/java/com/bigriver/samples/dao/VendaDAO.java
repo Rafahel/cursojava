@@ -5,8 +5,6 @@ import java.util.Collection;
 import javax.persistence.EntityManager;
 
 import com.bigriver.samples.BancoDeDados;
-import com.bigriver.samples.model.Jogo;
-import com.bigriver.samples.model.Pessoa;
 import com.bigriver.samples.model.Venda;
 
 public class VendaDAO implements DAO<Venda>{

@@ -30,7 +30,6 @@ public class VendaJogo implements ServicoVenda<Jogo> {
 	@Override
 	public void vender(Jogo produto, Pessoa cliente) {
 		//Implementa a lógica para a venda de um jogo
-		System.out.format("Vendeu a Jogo %s, para %s", produto, cliente);
+		System.out.format("Vendeu o Jogo %s, para %s", produto, cliente);
 	}
-
 }
