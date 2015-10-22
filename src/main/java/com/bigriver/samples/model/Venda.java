@@ -2,14 +2,19 @@ package com.bigriver.samples.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.dooapp.fxform.annotation.NonVisual;
 
+import com.bigriver.samples.listener.VendaList;
+import com.dooapp.fxform.annotation.NonVisual;
+@Entity
+@EntityListeners(VendaList.class)
 public class Venda {
 /**
  * Classe da tabela vendas do sistema
