@@ -1,10 +1,14 @@
 package com.bigriver.samples;
 
 import com.bigriver.samples.dao.JogoDAO;
+import com.bigriver.samples.dao.JogoNaoVendidoDAO;
+import com.bigriver.samples.dao.JogoVendidoDAO;
 import com.bigriver.samples.dao.PessoaDAO;
+import com.bigriver.samples.dao.VendaDAO;
 import com.bigriver.samples.model.Endereco;
 import com.bigriver.samples.model.Jogo;
 import com.bigriver.samples.model.Pessoa;
+import com.bigriver.samples.model.Venda;
 import com.bigriver.samples.service.VendaJogo;
 import com.bigriver.samples.view.TelaCadastro;
 import com.bigriver.samples.view.TelaConsulta;
@@ -47,10 +51,15 @@ public class DashBoard extends Application {
 		//Cria uma Tela de Consulta de Pessoas
 		TelaConsulta<Pessoa> pessoa_consulta = new TelaConsulta<>("Consulta Pessoas", pessoa_dao_consulta);
 		
-		//Cria um DAO para as Pessoas
-		JogoDAO jogo_dao_consulta = new JogoDAO();
+		//Cria um DAO para os Jogos Não Vendidos
+		JogoDAO jogoNV_dao_consulta = new JogoNaoVendidoDAO();
 		//Cria uma Tela de Consulta de Pessoas
-		TelaConsulta<Jogo> jogo_consulta = new TelaConsulta<>("Consulta Jogos", jogo_dao_consulta);
+		TelaConsulta<Jogo> jogoNV_consulta = new TelaConsulta<>("Consulta Jogos Não Vendidos", jogoNV_dao_consulta);
+		
+		//Cria um DAO para os Jogos Não Vendidos
+		JogoDAO jogoVendido_dao_consulta = new JogoVendidoDAO();
+		//Cria uma Tela de Consulta de Pessoas
+		TelaConsulta<Jogo> jogoVendido_consulta = new TelaConsulta<>("Consulta Jogos Vendidos", jogoVendido_dao_consulta);
 		
 		//Cria uma Tela para Venda de Jogos
 		VendaJogo venda_jogos = new VendaJogo();
@@ -58,8 +67,13 @@ public class DashBoard extends Application {
 		//Cria uma Tela de Vendas
 		TelaVendas<Jogo> telaVendas = new TelaVendas<>("Venda Jogos", venda_jogos);
 		
+		//Cria um DAO para as Vendas
+		VendaDAO venda_dao_consulta = new VendaDAO();
+		//Cria uma Tela de Consulta de Pessoas
+		TelaConsulta<Venda> venda_consulta = new TelaConsulta<>("Consulta Vendas", venda_dao_consulta);
+		
 		//Cria uma tela de DashBoard com as telas de Consulta e Cadastro de Pessoas
-		TelaDashboard telaDashboard = new TelaDashboard(pessoa_consulta, pessoa_cadastro, jogo_consulta, jogo_cadastro, telaVendas);
+		TelaDashboard telaDashboard = new TelaDashboard(pessoa_consulta, pessoa_cadastro, jogoNV_consulta, jogoVendido_consulta, jogo_cadastro, telaVendas, venda_consulta);
 		
 		//Cria uma Scene (JavaFX) com a tela de consulta
 		Scene scene = new Scene(telaDashboard);

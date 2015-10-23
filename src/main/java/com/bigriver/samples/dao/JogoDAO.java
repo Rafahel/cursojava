@@ -63,6 +63,7 @@ public class JogoDAO implements DAO<Jogo> {
 		@SuppressWarnings("unchecked")
 		Collection<Jogo> todos = gerenteEntidades.createQuery("from Jogo")
 				.getResultList();
+		
 		//Garante a conclusão da operação
 		gerenteEntidades.getTransaction().commit();
 		gerenteEntidades.close();

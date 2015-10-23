@@ -27,10 +27,17 @@ public class Jogo {
 	//Não exibir em formulários
 	@NonVisual
 	private Date timestamps;
+	
+	@NonVisual
+	private boolean disponivel; 
 		
 	private String nome, genero, plataforma;
 	private int jogadores;
 	private double preco;
+	
+	public Jogo() {
+		disponivel = true;
+	}
 	
 	@Id
 	@GeneratedValue
@@ -42,6 +49,14 @@ public class Jogo {
 		this.id = id;
 	}
 	
+	public boolean isDisponivel() {
+		return disponivel;
+	}	
+	
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
+	}
+
 	public String getNome() {
 		return nome;
 	}
